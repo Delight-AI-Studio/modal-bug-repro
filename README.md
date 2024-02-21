@@ -32,3 +32,10 @@ I may just be misunderstanding how imports / mounts work in modal, and I'm relat
 But I found it pretty confusing that doing `from .worker import important_function` doesn't work when I only do it in the file where
 I actually use the function, but then adding an unused import at the top of the backend/api.py file (or in `backend/__init__.py`) fixes
 this issue.
+
+More broadly, I'm a bit unsure why either approach would work, to be honest. I'm only mounting `backend.api_app` to the api function, so
+I didn't really expect anything from `backend/worker` to be available in that context and that I'd have to use `modal.Function.lookup`,
+but that didn't seem to work either.
+
+I'm _guessing_ that this all has to do with `modal serve` only building the images that it sees at the top-level, and so the worker image
+isn't getting built?
