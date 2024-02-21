@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "modal-bug-repro"
+version = "0.1.0"
+description = ""
+authors = ["JB Bakst <jb@delightai.studio>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+modal = "^0.57.63"
+
+
+[tool.poetry.group.api.dependencies]
+fastapi = "^0.109.2"
+pydantic = "^2.6.1"
+
+
+[tool.poetry.group.worker.dependencies]
+pydantic = "^2.6.1"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
